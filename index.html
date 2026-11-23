@@ -1,221 +1,622 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Cozy Oven | Freshly Baked Happiness</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      font-family: Georgia, serif;
-      background: #fffaf3;
-      color: #49372e;
-      line-height: 1.6;
-    }
+<title>The Cozy Oven | Freshly Baked Happiness</title>
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      background: #fffaf3;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #eee0cf;
-    }
+<style>
 
-    .logo { font-size: 25px; font-weight: bold; color: #854b32; }
+/* GENERAL STYLING */
 
-    nav { display: flex; gap: 24px; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    nav a {
-      color: #49372e;
-      text-decoration: none;
-      font-size: 15px;
-    }
+body {
+    font-family: Georgia, serif;
+    background: #fffaf3;
+    color: #49372e;
+    line-height: 1.6;
+}
 
-    nav a:hover { color: #ad704c; }
+/* NAVBAR */
 
-    .hero {
-      min-height: 540px;
-      padding: 90px 8%;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, #fff5e8 45%, #f3dfc7 100%);
-    }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #fffaf3;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee0cf;
+}
 
-    .hero-content { max-width: 600px; }
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #854b32;
+}
 
-    .tag { color: #a46b45; letter-spacing: 3px; font-size: 13px; }
+nav {
+    display: flex;
+    gap: 25px;
+}
 
-    h1 {
-      font-size: clamp(42px, 7vw, 70px);
-      line-height: 1.1;
-      margin: 18px 0;
-    }
+nav a {
+    text-decoration: none;
+    color: #49372e;
+    font-size: 16px;
+    transition: 0.3s;
+}
 
-    .hero p { font-size: 18px; margin-bottom: 28px; }
+nav a:hover {
+    color: #b77850;
+}
 
-    .btn {
-      display: inline-block;
-      background: #854b32;
-      color: white;
-      padding: 13px 25px;
-      text-decoration: none;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-    }
+/* HERO SECTION */
 
-    .btn:hover { background: #623621; }
+.hero {
+    min-height: 580px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
 
-    section { padding: 75px 8%; }
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,250,243,0.98),
+        rgba(255,250,243,0.78),
+        rgba(255,250,243,0.15)
+    ),
+    url("https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600");
 
-    .section-title { text-align: center; margin-bottom: 40px; }
+    background-size: cover;
+    background-position: center;
+}
 
-    .section-title h2 { font-size: 36px; margin-bottom: 8px; }
+.hero-content {
+    max-width: 650px;
+}
 
-    .section-title p { color: #8b7566; }
+.tag {
+    color: #a46b45;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 76px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #854b32;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #623621;
+    transform: translateY(-3px);
+}
+
+/* COMMON SECTION */
+
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #927966;
+    font-size: 17px;
+}
+
+/* PRODUCT SECTION */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.card {
+    background: white;
+    border-radius: 17px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 25px;
+    box-shadow: 0 6px 22px rgba(80, 50, 30, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(80, 50, 30, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    font-size: 23px;
+    margin: 17px 10px 7px;
+}
+
+.card p {
+    margin: 5px 12px;
+}
+
+.price {
+    color: #a46b45;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    background: #f4e7d8;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin: 15px 0 25px;
+}
+
+/* WHY CHOOSE US */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.feature {
+    background: #f5e9dc;
+    padding: 30px 20px;
+    border-radius: 15px;
+}
+
+.feature .emoji {
+    font-size: 42px;
+}
+
+.feature h3 {
+    margin: 12px 0;
+}
+
+/* CONTACT SECTION */
+
+.contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin: 20px 0 30px;
+}
+
+.contact-info p {
+    margin: 10px;
+    font-size: 17px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #49372e;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 800px) {
 
     .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .card {
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px #68452b12;
-      text-align: center;
-      padding-bottom: 25px;
+    .features {
+        grid-template-columns: 1fr;
     }
 
-    .product-art {
-      height: 190px;
-      display: grid;
-      place-items: center;
-      font-size: 85px;
-      background: #f5e6d5;
+    .hero {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 5%;
     }
 
-    .card h3 { margin: 18px 0 5px; font-size: 22px; }
-    .price { color: #a46b45; font-weight: bold; }
-
-    .about {
-      background: #f4e7d8;
-      text-align: center;
+    nav {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .about p { max-width: 650px; margin: 15px auto; }
-
-    .contact { text-align: center; }
-
-    .contact p { margin: 10px 0 25px; }
-
-    footer {
-      background: #49372e;
-      color: white;
-      padding: 25px;
-      text-align: center;
+    nav a {
+        font-size: 14px;
     }
 
-    @media(max-width: 700px) {
-      header { flex-direction: column; gap: 12px; }
-      nav { gap: 14px; flex-wrap: wrap; justify-content: center; }
-      .hero { min-height: 420px; padding: 65px 7%; }
-      .products { grid-template-columns: 1fr; }
-      section { padding: 55px 7%; }
+    .products {
+        grid-template-columns: 1fr;
     }
-  </style>
+
+    .hero {
+        padding: 65px 7%;
+        background-position: center;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header>
-  <div class="logo">The Cozy Oven</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Menu</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+    <div class="logo">The Cozy Oven</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
 </header>
 
-<main>
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="tag">FRESH FROM OUR OVEN</div>
-      <h1>Happiness is freshly baked.</h1>
-      <p>Delicious cakes, warm pastries and sweet treats,
-         lovingly made for your special moments.</p>
-      <a href="#products" class="btn">Explore Our Menu</a>
-    </div>
-  </section>
 
-  <section id="products">
-    <div class="section-title">
-      <h2>Our Bestsellers</h2>
-      <p>A little sweetness for every occasion.</p>
+<!-- HOME SECTION -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tag">FRESH FROM OUR OVEN</div>
+
+        <h1>Happiness is freshly baked.</h1>
+
+        <p>
+            Delicious cakes, warm pastries and sweet treats,
+            lovingly made for your special moments.
+        </p>
+
+        <a href="#products" class="btn">
+            Explore Our Menu
+        </a>
+
     </div>
+
+</section>
+
+
+<!-- PRODUCTS SECTION -->
+
+<section id="products">
+
+    <div class="section-title">
+
+        <h2>Our Bestsellers</h2>
+
+        <p>
+            A little sweetness for every occasion.
+        </p>
+
+    </div>
+
 
     <div class="products">
-      <article class="card">
-        <div class="product-art">🎂</div>
-        <h3>Chocolate Cake</h3>
-        <p>Rich and creamy chocolate delight.</p>
-        <p class="price">₹599 onwards</p>
-      </article>
 
-      <article class="card">
-        <div class="product-art">🥐</div>
-        <h3>Butter Croissant</h3>
-        <p>Flaky, buttery and freshly baked.</p>
-        <p class="price">₹120 onwards</p>
-      </article>
+        <!-- PRODUCT 1 -->
 
-      <article class="card">
-        <div class="product-art">🧁</div>
-        <h3>Vanilla Cupcakes</h3>
-        <p>Soft cupcakes with creamy frosting.</p>
-        <p class="price">₹80 onwards</p>
-      </article>
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+            alt="Chocolate truffle cake">
+
+            <h3>Chocolate Truffle Cake</h3>
+
+            <p>Rich and creamy chocolate delight.</p>
+
+            <p class="price">₹599 onwards</p>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"
+            alt="Strawberry cake">
+
+            <h3>Strawberry Cake</h3>
+
+            <p>Soft cake with fresh strawberry flavour.</p>
+
+            <p class="price">₹549 onwards</p>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600"
+            alt="Butter croissant">
+
+            <h3>Butter Croissant</h3>
+
+            <p>Flaky, buttery and freshly baked.</p>
+
+            <p class="price">₹120 onwards</p>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600"
+            alt="Chocolate brownies">
+
+            <h3>Chocolate Brownies</h3>
+
+            <p>Soft, rich and full of chocolate.</p>
+
+            <p class="price">₹100 onwards</p>
+
+        </article>
+
+
+        <!-- PRODUCT 5 -->
+
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600"
+            alt="Vanilla cupcakes">
+
+            <h3>Vanilla Cupcakes</h3>
+
+            <p>Fluffy cupcakes with creamy frosting.</p>
+
+            <p class="price">₹80 onwards</p>
+
+        </article>
+
+
+        <!-- PRODUCT 6 -->
+
+        <article class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600"
+            alt="Chocolate cookies">
+
+            <h3>Chocolate Cookies</h3>
+
+            <p>Crunchy cookies with chocolate chips.</p>
+
+            <p class="price">₹60 onwards</p>
+
+        </article>
+
     </div>
-  </section>
 
-  <section class="about" id="about">
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <div class="section-title">
+
+            <h2>Made With Love</h2>
+
+            <p>Every bite tells a sweet story.</p>
+
+        </div>
+
+        <p>
+            At The Cozy Oven, we believe every celebration
+            deserves something sweet. We prepare delicious
+            cakes, pastries and desserts with care, fresh
+            ingredients and lots of love.
+        </p>
+
+        <a href="#contact" class="btn">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+
+<section>
+
     <div class="section-title">
-      <h2>Made with Love</h2>
-    </div>
-    <p>
-      At The Cozy Oven, we believe every celebration deserves
-      something sweet. We prepare delicious treats with care,
-      fresh ingredients and lots of love.
-    </p>
-  </section>
 
-  <section class="contact" id="contact">
+        <h2>Why Choose Us?</h2>
+
+        <p>Sweetness, quality and happiness in every bite.</p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="emoji">🍰</div>
+
+            <h3>Freshly Baked</h3>
+
+            <p>
+                Freshly prepared treats for your special moments.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="emoji">❤️</div>
+
+            <h3>Made With Love</h3>
+
+            <p>
+                Every product is prepared with care and attention.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="emoji">🎂</div>
+
+            <h3>Special Occasions</h3>
+
+            <p>
+                Sweet treats for birthdays and celebrations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+
+<section class="contact" id="contact">
+
     <div class="section-title">
-      <h2>Let's Make Your Day Sweeter</h2>
-      <p>Interested in placing an order? Contact our bakery.</p>
+
+        <h2>Let's Make Your Day Sweeter!</h2>
+
+        <p>
+            Have a question or want to place an order?
+            We'd love to hear from you.
+        </p>
+
     </div>
 
-    <p>📍 Hyderabad, India</p>
-    <p>✉ hello@example.com</p>
-    <a class="btn" href="https://wa.me/910000000000">
-      Order on WhatsApp
+
+    <div class="contact-info">
+
+        <p>📍 Hyderabad, India</p>
+
+        <p>✉ hello@example.com</p>
+
+        <p>🕒 Monday – Sunday | 9 AM – 9 PM</p>
+
+    </div>
+
+
+    <a
+    class="btn"
+    href="https://wa.me/910000000000?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order."
+    target="_blank"
+    rel="noopener noreferrer">
+
+        Order on WhatsApp
+
     </a>
-  </section>
+
+</section>
+
 </main>
 
+
+<!-- FOOTER -->
+
 <footer>
-  <p>© 2026 The Cozy Oven. Sample bakery website.</p>
+
+    <p>© 2026 The Cozy Oven. All Rights Reserved.</p>
+
+    <p>Freshly Baked Happiness ❤️</p>
+
 </footer>
 
 </body>
